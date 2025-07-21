@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: python-cnbpfovd-gitops
+  description: This is GitOps manifest for python-cnbpfovd   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=python-cnbpfovd
+    backstage.io/kubernetes-id: python-cnbpfovd 
+    backstage.io/techdocs-ref: dir:. 
+    jenkins.io/job-full-name: python-cnbpfovd-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:python-cnbpfovd
